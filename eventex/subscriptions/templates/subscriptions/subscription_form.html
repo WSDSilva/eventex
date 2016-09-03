@@ -27,7 +27,7 @@
             <header class="header header-inline min-h-3 row desktop-12 container" role="banner">
 
                 <div class="site-logo">
-                    <h1><a href="/" rel="home">Eventex</h1>
+                    <h1><a href="/" rel="home">Eventex</a></h1>
                     <p class="site-description screen-reader-only">O maior encontro hacker do mundo!</p>
                 </div>
 
@@ -53,9 +53,9 @@
                     <form action="." method="post">
                         {% csrf_token %}
                         <div class="form-row label-block input-text">
-                            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
-                            {{ form.name.errors }}
-                            {{ form.name }}
+                            <label for="{{ form.nome.id_for_label }}">{{ form.nome.label }}</label>
+                            {{ form.nome.errors }}
+                            {{ form.nome }}
                         </div>
                         <div class="form-row label-block input-text">
                             <label for="{{ form.cpf.id_for_label }}">{{ form.cpf.label }}</label>
