@@ -7,6 +7,7 @@ from eventex.subscriptions.forms import SubscriptionForm
 
 
 def subscribe(request):
+
     if request.method == 'POST':
         form = SubscriptionForm(request.POST)
         #os dados oriundos da requisição são convertidos de strings para objetos python de alto nível
@@ -16,7 +17,7 @@ def subscribe(request):
 
             mail.send_mail('Confirmação de inscrição',
                            body,
-                           'app55590690@heroku.com',
+                           'contato@eventex.com.br',
                            ['contato@eventex.com.br', form.cleaned_data['email']])
 
             return HttpResponseRedirect('/inscricao/')
