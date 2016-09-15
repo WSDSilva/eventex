@@ -17,11 +17,11 @@ class SubscribePostValid(TestCase):
         self.assertEqual(expect, self.email.subject)
 
     def test_subscription_email_from(self):
-        expect = 'contato@eventex.com.br'
+        expect = 'contato@eventex.com'
         self.assertEqual(expect, self.email.from_email)
 
     def test_subscription_emal_to(self):
-        expect = ['contato@eventex.com.br', 'wsistemas.br@gmail.com']
+        expect = ['contato@eventex.com', 'wsistemas.br@gmail.com']
         self.assertEqual(expect, self.email.to)
 
     def test_subscription_body(self):
