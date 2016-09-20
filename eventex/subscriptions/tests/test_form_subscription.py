@@ -26,10 +26,28 @@ class SubscriptionFormTest(TestCase):
 
     def test_nome_must_be_capitalized(self):
         """"Nome must be capitalized"""
-
         form = self.make_validated_form(nome='WANDERSON duarte')
 
         self.assertEqual('Wanderson Duarte', form.cleaned_data['nome'])
+
+    def test_email_is_optional(self):
+        """"Email is optional"""
+        form = self.make_validated_form(email=' ')
+
+        self.assertFalse(form.errors)
+
+    def test_phone_is_optional(self):
+        """Phone is optional"""
+        form = self.make_validated_form(phone=' ')
+
+        self.assertFalse(form.errors)
+
+    def test_must_inform_email_or_phone(self):
+        """Email and Phone are optional, but one must informed"""
+        form = self.make_validated_form(email='', phone='')
+
+        self.assertEqual(['__all__'], list(form.errors))
+
 
     def assertformerrorcode(self, form, field, code):
         errors = form.errors.as_data()
