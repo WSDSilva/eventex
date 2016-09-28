@@ -27,7 +27,8 @@ def create(request):
     #os dados oriundos da requisição são convertidos de strings para objetos python de alto nível
     # form.full_clean()
 
-    subscription = Subscription.objects.create(**form.cleaned_data)
+    subscription = form.save()
+    # subscription = Subscription.objects.create(**form.cleaned_data)
 
     _send_mail('Confirmação de inscrição',
                settings.DEFAULT_FROM_EMAIL,
@@ -37,9 +38,6 @@ def create(request):
 
 
     return HttpResponseRedirect(r('subscriptions:detail', subscription.pk))
-
-
-
 
 
 def detail(request, pk):

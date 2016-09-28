@@ -1,6 +1,8 @@
+import hashlib
+
 from django.test import TestCase
 from django.shortcuts import resolve_url as r
-
+from django.core.urlresolvers import reverse
 from eventex.subscriptions.models import Subscription
 
 
@@ -31,6 +33,7 @@ class SubscriptionDetailGet(TestCase):
         with self.subTest():
             for expected in contents:
                 self.assertContains(self.resp, expected)
+
 
 class SubscriptionDetailNotFound(TestCase):
     def test_not_found(self):

@@ -65,7 +65,6 @@ class SubscriptionNewPostValid(TestCase):
         self.assertTrue(Subscription.objects.exists())
 
 
-
 class SubscriptionNewPostInvalid(TestCase):
 
     def setUp(self):
