@@ -13,7 +13,7 @@ class TalkeGet(TestCase):
                             description='Descrição da palestra')
 
         c1 = Course.objects.create(title='Título do Curso', start='09:00',
-                            description='Descrição do curso.', slots=20)
+                                       description='Descrição do curso.', slots=20)
 
         speaker = Speaker.objects.create(nome='Henrique Bastos',
                                slug='henrique-bastos',
@@ -50,7 +50,7 @@ class TalkeGet(TestCase):
                 self.assertContains(self.resp, expected, count)
 
     def test_context(self):
-        variables = ['moring_talks', 'afternoon_talks', 'courses']
+        variables = ['moring_talks', 'afternoon_talks']
 
         for key in variables:
             with self.subTest():
